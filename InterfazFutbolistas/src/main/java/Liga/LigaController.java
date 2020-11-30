@@ -79,11 +79,8 @@ public class LigaController {
     public String[][] datos_liga(){         
         String contenido[][] = new String[getLigas().size()][5];
         for(int i = 0;i < this.getLigas().size();i++){             
-            contenido[i][0] = String.valueOf(this.getLigas(i).getLiga_ID());
-            contenido[i][1] = String.valueOf(this.getLigas(i).getNombre_liga());
-            contenido[i][2] = String.valueOf(this.getLigas(i).getNumero_equipos()); 
-            contenido[i][3] = String.valueOf(this.getLigas(i).getFecha_inicio());             
-            contenido[i][4] = String.valueOf(this.getLigas(i).getFecha_fin());
+            contenido[i][0] = String.valueOf(this.getLigas(i).getNombre_liga());
+            contenido[i][1] = String.valueOf(this.getLigas(i).getNumero_equipos()); 
         }
         return contenido;
     }
