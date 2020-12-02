@@ -33,7 +33,7 @@ public class interfazFutoblistas extends javax.swing.JFrame {
     boolean modificarFut = false;
     boolean eliminarFut = false;
     File file_fut = new File ("FicheroFut.txt");
-    int row;
+    
     //Variables Necesarias para Equipo
     EquipoController controlador_equi = new EquipoController();
     boolean insertarEqui = false;
@@ -41,6 +41,7 @@ public class interfazFutoblistas extends javax.swing.JFrame {
     boolean eliminarEqui = false;
     File file_equi = new File ("FicheroEqui.txt");
     boolean EqeliminarConFk = false;
+    
     //Variables Necesarias para Liga
     LigaController controlador_liga = new LigaController();
     boolean insertarLiga = false;
@@ -48,7 +49,7 @@ public class interfazFutoblistas extends javax.swing.JFrame {
     boolean eliminarLiga = false;
     File file_liga = new File ("FicheroLig.txt");
     boolean eliminarLigaFk = false;
-    int rowL ;
+    
     /**
      * Creates new form interfazFutoblistas
      */
@@ -940,7 +941,7 @@ public class interfazFutoblistas extends javax.swing.JFrame {
             EdadFut.setEditable(false);
         }
         else if (modificarFut == true){
-            
+            int row = jTable2.getSelectedRow();
             //controlador_fut.getFutbolistas(row).setDni(DniFut.getText());
             controlador_fut.getFutbolistas(row).setNombre(NombreFut.getText());
             controlador_fut.getFutbolistas(row).setApellido1(Apellido1Fut.getText());
@@ -1184,7 +1185,7 @@ public class interfazFutoblistas extends javax.swing.JFrame {
             IdEquiposLiga.setVisible(true);
         }
         else if (modificarLiga == true){
-            
+            int rowL = jTableLiga.getSelectedRow();
             controlador_liga.getLigas(rowL).setLiga_ID(IdLiga.getText());
             controlador_liga.getLigas(rowL).setNombre_liga(NombreLiga.getText());
             controlador_liga.getLigas(rowL).setNumero_equipos(Integer.valueOf(EquiposLiga.getText()));
@@ -1215,6 +1216,7 @@ public class interfazFutoblistas extends javax.swing.JFrame {
             IdEquiposLiga.setVisible(true);
         }
         else if(eliminarLiga == true){
+            int rowL = jTableLiga.getSelectedRow();
             controlador_liga.getLigas().remove(rowL);
             String matriz [][] = controlador_liga.datos_liga();
             mostrarTablaLiga(matriz);
